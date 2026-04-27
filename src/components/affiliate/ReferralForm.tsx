@@ -53,23 +53,21 @@ export default function AffiliateReferralForm() {
   };
 
   const inputClass = (field: string) =>
-    `w-full rounded-lg border px-4 py-3 text-sm transition-colors outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 ${
+    `w-full border px-4 py-3 text-sm transition-colors outline-none bg-white focus:border-black focus:ring-2 focus:ring-gray-200 ${
       touched[field] && errors[field as keyof typeof errors]
         ? "border-red-400"
-        : "border-gray-200"
+        : "border-[#e0e0e0]"
     }`;
 
   return (
     <section className="pb-8">
-      <div
-        className="rounded-2xl bg-white p-5 sm:p-8"
-        style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}
-      >
+      <p className="section-label mb-6">Empfehlung ausfüllen</p>
+      <div className="border border-[#e0e0e0] bg-white p-5 sm:p-8">
         <div className="flex flex-col gap-5">
           <div>
             <label
               htmlFor="aff-name"
-              className="mb-1.5 block text-xs font-semibold tracking-widest text-gray-500 uppercase"
+              className="mb-1.5 block text-[10px] font-semibold tracking-widest text-[#6b6b6b] uppercase"
             >
               Name
             </label>
@@ -90,7 +88,7 @@ export default function AffiliateReferralForm() {
           <div>
             <label
               htmlFor="aff-email"
-              className="mb-1.5 block text-xs font-semibold tracking-widest text-gray-500 uppercase"
+              className="mb-1.5 block text-[10px] font-semibold tracking-widest text-[#6b6b6b] uppercase"
             >
               E-Mail / PayPal-Adresse
             </label>
@@ -114,23 +112,23 @@ export default function AffiliateReferralForm() {
                 type="checkbox"
                 checked={noPaypal}
                 onChange={(e) => setNoPaypal(e.target.checked)}
-                className="h-4 w-4 rounded border-gray-300"
+                className="h-4 w-4 border-[#e0e0e0]"
               />
-              <span className="text-sm text-gray-800">
-                {noPaypal ? "▲" : "▼"} Kein PayPal — stattdessen Bankverbindung
+              <span className="text-sm text-[#1a1a1a]">
+                Kein PayPal — stattdessen Bankverbindung
               </span>
             </label>
 
             {noPaypal && (
-              <div className="mt-4 space-y-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
-                <p className="text-xs text-gray-500">
+              <div className="mt-4 space-y-4 border border-[#e0e0e0] bg-[#f5f5f5] p-4">
+                <p className="text-xs text-[#6b6b6b]">
                   Bankverbindung eingeben, damit die Provision per Überweisung
                   ausgezahlt werden kann.
                 </p>
                 <div>
                   <label
                     htmlFor="aff-kontoinhaber"
-                    className="mb-1.5 block text-xs font-semibold tracking-widest text-gray-500 uppercase"
+                    className="mb-1.5 block text-[10px] font-semibold tracking-widest text-[#6b6b6b] uppercase"
                   >
                     Kontoinhaber
                   </label>
@@ -152,7 +150,7 @@ export default function AffiliateReferralForm() {
                 <div>
                   <label
                     htmlFor="aff-iban"
-                    className="mb-1.5 block text-xs font-semibold tracking-widest text-gray-500 uppercase"
+                    className="mb-1.5 block text-[10px] font-semibold tracking-widest text-[#6b6b6b] uppercase"
                   >
                     IBAN
                   </label>
@@ -174,12 +172,12 @@ export default function AffiliateReferralForm() {
           </div>
 
           {isReady && (
-            <div className="fade-in rounded-lg bg-orange-50 p-4">
-              <p className="mb-2 text-xs font-semibold tracking-widest text-gray-500 uppercase">
+            <div className="fade-in border border-[#e0e0e0] bg-[#f5f5f5] p-4">
+              <p className="mb-2 text-[10px] font-semibold tracking-widest text-[#6b6b6b] uppercase">
                 Empfehlungsblock (Vorschau)
               </p>
-              <div className="space-y-1 text-sm text-gray-800">
-                <p className="text-gray-400">———————————</p>
+              <div className="space-y-1 text-sm text-[#1a1a1a]">
+                <p className="text-[#6b6b6b]">———————————</p>
                 <p className="font-bold">Empfehlung</p>
                 <p>Dieser Auftrag wurde</p>
                 <p>empfohlen von:</p>
@@ -187,7 +185,7 @@ export default function AffiliateReferralForm() {
                 <p>{email}</p>
                 {noPaypal && kontoinhaber && (
                   <>
-                    <p className="mt-2 text-xs font-semibold text-gray-500">
+                    <p className="mt-2 text-[10px] font-semibold text-[#6b6b6b]">
                       Bankverbindung:
                     </p>
                     <p>Kontoinhaber: {kontoinhaber}</p>
@@ -195,7 +193,7 @@ export default function AffiliateReferralForm() {
                   </>
                 )}
                 <p>Ref: {refCode}</p>
-                <p className="text-gray-400">———————————</p>
+                <p className="text-[#6b6b6b]">———————————</p>
               </div>
             </div>
           )}
@@ -205,24 +203,22 @@ export default function AffiliateReferralForm() {
               type="button"
               onClick={handleCopy}
               disabled={!isReady}
-              className={`inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-white transition-all ${
+              className={`inline-flex w-full items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold text-white transition-all ${
                 !isReady
-                  ? "cursor-not-allowed bg-orange-300 opacity-50"
+                  ? "cursor-not-allowed bg-[#999] opacity-60"
                   : copied
-                    ? "bg-green-600"
-                    : "bg-orange-500 hover:-translate-y-px hover:bg-orange-600 hover:shadow-md"
+                    ? "bg-[#16a34a]"
+                    : "bg-[#0a0a0a] hover:bg-[#333]"
               }`}
             >
-              {copied ? "Kopiert!" : "In Zwischenablage kopieren"}
+              {copied ? "✓ Kopiert!" : "In Zwischenablage kopieren →"}
             </button>
 
-            <div className="flex gap-2.5">
+            <div className="flex gap-2">
               <a
                 href={isReady ? generateAffiliateMailtoLink(referralData) : undefined}
-                className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-xs font-semibold text-gray-800 transition-all ${
-                  isReady
-                    ? "hover:-translate-y-px hover:shadow-md"
-                    : "pointer-events-none opacity-50"
+                className={`inline-flex flex-1 items-center justify-center border border-[#e0e0e0] px-3 py-2.5 text-xs font-semibold text-[#1a1a1a] transition-all ${
+                  isReady ? "hover:border-black hover:bg-[#f5f5f5]" : "pointer-events-none opacity-40"
                 }`}
                 aria-disabled={!isReady}
               >
@@ -232,10 +228,8 @@ export default function AffiliateReferralForm() {
                 href={isReady ? generateAffiliateGmailLink(referralData) : undefined}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-xs font-semibold text-gray-800 transition-all ${
-                  isReady
-                    ? "hover:-translate-y-px hover:shadow-md"
-                    : "pointer-events-none opacity-50"
+                className={`inline-flex flex-1 items-center justify-center border border-[#e0e0e0] px-3 py-2.5 text-xs font-semibold text-[#1a1a1a] transition-all ${
+                  isReady ? "hover:border-black hover:bg-[#f5f5f5]" : "pointer-events-none opacity-40"
                 }`}
                 aria-disabled={!isReady}
               >
@@ -245,10 +239,8 @@ export default function AffiliateReferralForm() {
                 type="button"
                 onClick={() => generateAffiliatePDF(referralData)}
                 disabled={!isReady}
-                className={`inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-xs font-semibold text-gray-800 transition-all ${
-                  isReady
-                    ? "hover:-translate-y-px hover:shadow-md"
-                    : "pointer-events-none opacity-50"
+                className={`inline-flex flex-1 items-center justify-center border border-[#e0e0e0] px-3 py-2.5 text-xs font-semibold text-[#1a1a1a] transition-all ${
+                  isReady ? "hover:border-black hover:bg-[#f5f5f5]" : "pointer-events-none opacity-40"
                 }`}
               >
                 PDF
@@ -256,7 +248,7 @@ export default function AffiliateReferralForm() {
             </div>
           </div>
 
-          <p className="flex items-center gap-1.5 text-xs text-gray-500">
+          <p className="text-xs text-[#6b6b6b]">
             Daten werden nur zur Provisions-Auszahlung verwendet.
           </p>
         </div>

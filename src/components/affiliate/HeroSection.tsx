@@ -1,15 +1,21 @@
 export default function AffiliateHeroSection() {
   return (
-    <section className="fade-in pb-6 text-center">
+    <section className="fade-in pb-10">
       <h1
-        className="text-navy font-extrabold"
-        style={{ fontSize: "clamp(28px, 5vw, 42px)", lineHeight: 1.15 }}
+        className="font-black leading-none tracking-tight text-[#0a0a0a]"
+        style={{ fontSize: "clamp(42px, 10vw, 72px)" }}
       >
-        Empfiehl uns weiter.
+        Empfiehl uns.
         <br />
-        <span className="text-orange">Verdiene mit.</span>
+        Verdiene mit.
       </h1>
-      <p className="text-text-muted mx-auto mt-4 max-w-[360px]">
+      <p
+        className="mt-2 font-black leading-none tracking-tight text-[#e63329]"
+        style={{ fontSize: "clamp(20px, 5vw, 32px)" }}
+      >
+        Provision sichern.
+      </p>
+      <p className="mt-5 max-w-[360px] text-[#6b6b6b]" style={{ fontSize: "14px" }}>
         Jemand aus deinem Umfeld braucht Tischlerarbeiten? Sag Bescheid — und
         verdiene eine Provision, wenn ein Auftrag zustande kommt.
       </p>

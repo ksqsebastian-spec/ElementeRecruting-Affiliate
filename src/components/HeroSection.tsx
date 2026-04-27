@@ -1,20 +1,24 @@
 export default function HeroSection() {
   return (
-    <section className="fade-in pb-6 text-center">
+    <section className="fade-in pb-10">
       <h1
-        className="text-navy font-extrabold"
-        style={{ fontSize: "clamp(28px, 5vw, 42px)", lineHeight: 1.15 }}
+        className="font-black leading-none tracking-tight text-[#0a0a0a]"
+        style={{ fontSize: "clamp(42px, 10vw, 72px)" }}
       >
-        Kennst du jemanden, der richtig gut ist?
+        Kennst du
         <br />
-        <span className="text-orange">
-          Sag Bescheid — und verdien 1.000 €.
-        </span>
+        jemanden?
       </h1>
-      <p className="text-text-muted mx-auto mt-4 max-w-[380px]">
+      <p
+        className="mt-2 font-black leading-none tracking-tight text-[#e63329]"
+        style={{ fontSize: "clamp(20px, 5vw, 32px)" }}
+      >
+        1.000 € Prämie.
+      </p>
+      <p className="mt-5 max-w-[360px] text-[#6b6b6b]" style={{ fontSize: "14px" }}>
         Du kennst jemanden, der als Tischler, Monteur oder Helfer richtig gut
-        wäre? Empfiehl die Person an uns weiter — wenn sie eingestellt wird und
-        die Probezeit besteht, zahlen wir dir 1.000 € Prämie.
+        wäre? Empfiehl die Person — wenn sie eingestellt wird und die Probezeit
+        besteht, zahlen wir dir 1.000 € Prämie.
       </p>
     </section>
   );

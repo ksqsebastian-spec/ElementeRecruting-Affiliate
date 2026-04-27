@@ -5,18 +5,17 @@ export default function JobLink() {
         href="https://seehafer-elemente.de/karriere"
         target="_blank"
         rel="noopener noreferrer"
-        className="block rounded-2xl border-l-[3px] border-l-orange bg-white p-5 transition-all hover:-translate-y-px hover:shadow-md"
-        style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}
+        className="flex items-center justify-between border border-[#e0e0e0] bg-white p-5 transition-all hover:border-black hover:bg-[#f5f5f5]"
       >
-        <p className="text-navy text-sm font-bold">
-          💼 Offene Stellen ansehen
-        </p>
-        <p className="text-text-muted mt-1 text-xs">
-          Schau dir an, welche Positionen gerade gesucht werden
-        </p>
-        <p className="text-orange mt-1 text-xs font-semibold">
-          seehafer-elemente.de/karriere →
-        </p>
+        <div>
+          <p className="text-sm font-bold text-[#0a0a0a]">
+            Offene Stellen ansehen
+          </p>
+          <p className="mt-0.5 text-xs text-[#6b6b6b]">
+            seehafer-elemente.de/karriere
+          </p>
+        </div>
+        <span className="text-lg font-bold text-[#e63329]">→</span>
       </a>
     </section>
   );

@@ -1,72 +1,55 @@
 const steps = [
   {
-    num: 1,
+    num: "01",
     title: "Formular ausfüllen",
     desc: "Name und PayPal-Adresse (oder Bankverbindung) eingeben.",
-    highlight: false,
+    accent: false,
   },
   {
-    num: 2,
+    num: "02",
     title: "Empfehlungsblock weitergeben",
     desc: "Per E-Mail, Gmail, Zwischenablage oder PDF — an die Person, die Tischlerarbeiten braucht.",
-    highlight: false,
+    accent: false,
   },
   {
-    num: 3,
+    num: "03",
     title: "Auftrag kommt zustande",
-    desc: "Die Person schickt eine Anfrage an Seehafer Elemente und fügt den Empfehlungsblock bei.",
-    highlight: false,
+    desc: "Die Person schickt eine Anfrage an Seehafer Elemente mit dem Empfehlungsblock.",
+    accent: false,
   },
   {
-    num: 4,
+    num: "04",
     title: "Provision erhalten",
-    desc: "Wenn ein Auftrag daraus entsteht, bekommst du deine Provision auf PayPal oder per Überweisung.",
-    highlight: true,
+    desc: "Wenn ein Auftrag entsteht, kommt deine Provision auf PayPal oder per Überweisung.",
+    accent: true,
   },
 ];
 
 export default function AffiliateStepCards() {
   return (
     <section className="fade-in pb-10">
-      <p className="text-navy mb-5 text-center text-sm font-bold tracking-wide uppercase">
-        So funktioniert es
-      </p>
-      <div className="relative ml-6 border-l-2 border-gray-200 pl-8 sm:ml-8 sm:pl-10">
-        {steps.map((step, i) => (
+      <p className="section-label mb-6">So funktioniert es</p>
+      <div>
+        {steps.map((step) => (
           <div
             key={step.num}
-            className={`relative pb-8 ${i === steps.length - 1 ? "pb-0" : ""}`}
+            className="border-t border-[#e0e0e0] py-5 last:border-b"
           >
-            <span
-              className={`absolute -left-[calc(2rem+1px)] flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white sm:-left-[calc(2.5rem+1px)] sm:h-12 sm:w-12 sm:text-base ${
-                step.highlight ? "bg-orange ring-4 ring-orange-100" : "bg-navy"
-              }`}
+            <p
+              className="mb-1 font-semibold text-[#6b6b6b]"
+              style={{ fontSize: "10px", letterSpacing: "1px" }}
             >
               {step.num}
-            </span>
-            <div
-              className={`rounded-xl p-4 sm:p-5 ${
-                step.highlight
-                  ? "bg-orange-50 ring-1 ring-orange-200"
-                  : "bg-white"
-              }`}
-              style={
-                step.highlight
-                  ? undefined
-                  : { boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }
-              }
+            </p>
+            <p
+              className={`font-black leading-tight ${step.accent ? "text-[#e63329]" : "text-[#0a0a0a]"}`}
+              style={{ fontSize: "clamp(18px, 4vw, 22px)" }}
             >
-              <p
-                className={`text-sm font-bold sm:text-base ${
-                  step.highlight ? "text-orange" : "text-navy"
-                }`}
-              >
-                {step.title}
-              </p>
-              <p className="text-text-muted mt-1 text-xs sm:text-sm">
-                {step.desc}
-              </p>
-            </div>
+              {step.title}
+            </p>
+            <p className="mt-1 text-[#6b6b6b]" style={{ fontSize: "13px" }}>
+              {step.desc}
+            </p>
           </div>
         ))}
       </div>
