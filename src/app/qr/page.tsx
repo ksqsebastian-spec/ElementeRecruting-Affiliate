@@ -6,8 +6,12 @@ export const metadata = {
 };
 
 export default async function QRPage() {
-  const base = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+  // VERCEL_PROJECT_PRODUCTION_URL is the stable production domain (no deployment hash)
+  const vercelBase =
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+    process.env.VERCEL_URL;
+  const base = vercelBase
+    ? `https://${vercelBase}`
     : (process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000");
 
   const [empfehlungQR, partnerQR] = await Promise.all([
